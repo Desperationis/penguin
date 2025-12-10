@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import os
+import sys
 from typing import List, Optional
 
 CG2_ROOT = "/sys/fs/cgroup"
@@ -228,10 +229,10 @@ def host_pid_of_container_init(container_id: str) -> Optional[int]:
     return None
 
 # Example usage (run as root or with sufficient /proc,/sys access):
-cid = "94860d9dd294"
+cid = sys.argv[1]
 print("cgroup v2 path:", container_cg2_path(cid))
 print("host PIDs:", host_pids(cid))
 print("host PID of container init (PID 1):", host_pid_of_container_init(cid))
 
-print(list_container_pids_and_names(1420372))
+print(list_container_pids_and_names(host_pid_of_container_init(cid)))
 
