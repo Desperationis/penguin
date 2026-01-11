@@ -12,4 +12,4 @@ tests/unit_tests/test_target/config.yaml
 penguin.sif
 fw
 db/events.*
-local_packages/*
+local_packages/*CLAUDE.md
